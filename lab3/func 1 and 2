@@ -1,0 +1,242 @@
+grams = 100
+
+def ounces(a):
+    return a * 28.3495231
+    
+print(ounces(grams))
+
+#2
+
+faren = 451 
+
+def cel(faren):
+    return (5 / 9) * (faren - 32)
+    
+print(cel(faren))
+
+#4 
+
+numb = [i for i in range(1, 25)]
+def prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True   
+for i in numb:
+    if (prime(i)== True):
+        print(i)
+        
+#5
+
+from itertools import permutations
+def print_permutations(string):
+    for perm in permutations(string):
+        print(''.join(perm))
+print_permutations(input("Enter a string: "))
+
+#6
+
+def reverse_sentence(sentence):
+    return ' '.join(sentence.split()[::-1])
+print(reverse_sentence(input()))
+
+#7
+
+def func(nums):
+    for i in range(len(nums) - 1):
+        if nums[i] == 3 and nums[i + 1] == 3:
+            return True
+    return False
+
+nums = [1, 2, 3, 4, 5, 3,3, 6, 7]
+print(func(nums)) 
+
+#8 
+
+def func(nums):
+    for i in range(len(nums) - 1):
+        if nums[i] == 0 and nums[i + 1] == 0 and nums[i + 2] == 7:
+            return True
+    return False
+
+nums = [1, 2, 3, 4, 5, 3,3, 6, 7]
+print(func(nums))
+
+#9 
+
+r=4
+def v(r):
+    return 3,14 * r * r 
+print(v(r))
+
+#10 
+
+def sett(input_list):
+    sett = []
+    for element in input_list:
+        if element not in sett:
+            sett.append(element)
+    return sett
+
+listt = [1, 2, 2, 3, 4, 4, 5, 6, 6, 7]
+print(sett(listt)) 
+
+#11
+
+strr = "abba"
+str1 = strr[::-1]
+def pol(strr,str1):
+    if strr == str1:
+        print("yes")
+    else:
+        print("no")
+        
+#12 
+
+nlist=[4,9,7]
+def histo(n):
+    for i in range(1,n):
+        print('*')
+for i in nlist:
+    histo(i)
+    print(" ")
+    
+#13
+
+import random
+
+def guess_the_number():
+    name = input("Hello! What is your name?\n")
+    print(f"Well, {name}, I am thinking of a number between 1 and 20.")
+
+    # Generate a random number between 1 and 20
+    secret_number = random.randint(1, 20)
+    num_guesses = 0
+
+    while True:
+        guess = int(input("Take a guess.\n"))
+        num_guesses += 1
+
+        if guess < secret_number:
+            print("Your guess is too low.")
+        elif guess > secret_number:
+            print("Your guess is too high.")
+        else:
+            print(f"Good job, {name}! You guessed my number in {num_guesses} guesses!")
+            break
+
+# Run the game
+guess_the_number()
+
+
+#func2
+
+# Dictionary of movies
+
+movies = [
+{
+"name": "Usual Suspects", 
+"imdb": 7.0,
+"category": "Thriller"
+},
+{
+"name": "Hitman",
+"imdb": 6.3,
+"category": "Action"
+},
+{
+"name": "Dark Knight",
+"imdb": 9.0,
+"category": "Adventure"
+},
+{
+"name": "The Help",
+"imdb": 8.0,
+"category": "Drama"
+},
+{
+"name": "The Choice",
+"imdb": 6.2,
+"category": "Romance"
+},
+{
+"name": "Colonia",
+"imdb": 7.4,
+"category": "Romance"
+},
+{
+"name": "Love",
+"imdb": 6.0,
+"category": "Romance"
+},
+{
+"name": "Bride Wars",
+"imdb": 5.4,
+"category": "Romance"
+},
+{
+"name": "AlphaJet",
+"imdb": 3.2,
+"category": "War"
+},
+{
+"name": "Ringing Crime",
+"imdb": 4.0,
+"category": "Crime"
+},
+{
+"name": "Joking muck",
+"imdb": 7.2,
+"category": "Comedy"
+},
+{
+"name": "What is the name",
+"imdb": 9.2,
+"category": "Suspense"
+},
+{
+"name": "Detective",
+"imdb": 7.0,
+"category": "Suspense"
+},
+{
+"name": "Exam",
+"imdb": 4.2,
+"category": "Thriller"
+},
+{
+"name": "We Two",
+"imdb": 7.2,
+"category": "Romance"
+}
+]
+#1
+def cond1(movie):
+    return movie["imdb"] > 5.5
+    
+#2
+
+def cond2(movies):
+    return [movie for movie in movies if cond1(movie)]
+
+#3 
+
+def categ(movies, category):
+    return [movie for movie in movies if movie["category"] == category]
+    
+#4 
+
+def average(movies):
+    if not movies:
+        return 0
+    total_score = sum(movie["imdb"] for movie in movies)
+    return total_score / len(movies)
+    
+#5 
+
+def average_categ(movies, category):
+    category_movies = categ(movies, category)
+    return average(category_movies)
+
